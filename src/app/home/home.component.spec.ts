@@ -22,4 +22,17 @@ describe('HomeComponent', () => {
   it('should be created', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have a main header', async(() => {
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('h1')).toBeTruthy();
+  }));
+
+    it('should have two buttons', async(() => {
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('button')).toBeTruthy();
+  }));
+
 });
