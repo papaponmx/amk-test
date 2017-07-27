@@ -3,11 +3,12 @@ import { Router } from '@angular/router';
 
 import { AuthenticationService } from '../services/authentication.service';
 
+
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  moduleId: module.id,
+  templateUrl: 'login.component.html'
 })
+
 export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
@@ -15,8 +16,7 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private router: Router,
-    private authenticationService
-  ) { }
+    private authenticationService: AuthenticationService) { }
 
   ngOnInit() {
     this.authenticationService.logout();
@@ -33,7 +33,6 @@ export class LoginComponent implements OnInit {
           this.loading = false;
         }
       });
-
   }
-
 }
+

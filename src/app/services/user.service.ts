@@ -4,7 +4,7 @@ import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 
 import { AuthenticationService } from './authentication.service';
-
+import { User } from '../models/iuser';
 
 @Injectable()
 export class UserService {
@@ -14,7 +14,7 @@ export class UserService {
     private authenticationService: AuthenticationService
   ) { }
 
-  getUsers() {
+  getUsers(): Observable<User[]> {
     const headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
     const options = new RequestOptions({ headers: headers });
 
