@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Headers, RequestOptions, Response } from '@angular/http';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 import { AuthenticationService } from './authentication.service';
 import { User } from '../models/iuser';
@@ -15,10 +16,11 @@ export class UserService {
   ) { }
 
   getUsers(): Observable<User[]> {
-    const headers = new Headers({ 'Authorization': 'Bearer ' + this.authenticationService.token });
+    const headers = new Headers({ 'Authorization': `Bearer  ${this.authenticationService.token}` });
     const options = new RequestOptions({ headers: headers });
 
     return this.http.get('/api/users', options)
-      .map((response: Response) => response.json());
+      .map((response: Response) => response.json())
+      .catch((error: any) => Observable.throw(error.json().error || 'Server error'));
   }
 }
