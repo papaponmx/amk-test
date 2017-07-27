@@ -1,3 +1,68 @@
-<p>
-  home works!
-</p>
+<div class="container">
+
+  <div class="row">
+
+    <h3>Selecciona uno</h3>
+    <div class="col-md-6"><a (click)="updateSection('clubs')" class="btn"><h2>Posts</h2></a></div>
+    <div class="col-md-6"><a (click)="updateSection('subs')" class="btn"><h2>Users</h2></a></div>
+  </div>
+  <!-- TODO: Display information according to the escenario -->
+
+  <ng-container *ngIf="currentSection == 'posts'">
+    <h2>Posts</h2>
+
+    <div *ngFor="let post of sectionData">
+      <div class="card">
+      Name:{{ post.title | uppercase }}
+      ID:
+      Username:
+      Email:
+      Address:
+        Street:
+        Suite:
+        City:
+        Zipcode:
+        Lat:
+        Long:
+      Phone:
+      Website:
+      Company
+        name:
+        catchPhrase:
+        Business:
+      </div>
+
+    </div>
+  </ng-container>
+
+  <ng-container *ngIf="currentSection == 'users' &&sectionData">
+    <h2>Users</h2>
+
+    <div *ngFor="let user of sectionData">
+      <div class="card">
+        <ul>
+          <li><b>Name</b>: {{ user?.name | uppercase }}</li>
+      <li><b>ID</b>: {{ user?.id }}</li>
+      <li><b>Username</b>: {{ user?.username }}</li>
+      <li><b>Email</b>: {{ user?.email }}</li>
+      <li class="card-address">
+        <b>Address</b>:
+        <b>Street</b>: {{ user?.address?.street }}
+        <b>Suite</b>: {{ user?.address?.suite }}
+        <b>City</b>: {{ user?.address?.city }}
+        <b>Zipcode</b>: {{ user?.address?.zipcode }}
+        <b>Lat</b>: {{ user?.address?.geo?.lat }}
+        <b>Long</b>:{{ user?.address?.geo?.lng }}
+        </li>
+      <li><b>Phone</b>: {{ user?.phone }}</li>
+      <li><b>Website</b>:{{ user?.website }}</li>
+      <li><b>Company</b></li>
+        <li><b>name</b>: {{ user?.company?.name }}</li>
+        <li><b>catchPhrase</b>: {{ user?.company?.catchPhrase }}</li>
+        <li><b>Business:</b> {{ user?.company?.bs}}</li>
+        </ul>
+      </div>
+    </div>
+  </ng-container>
+
+</div>
