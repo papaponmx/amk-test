@@ -1,8 +1,9 @@
 <div class="container">
-
   <div class="row">
-
-    <h3><a [routerLink]="['/login']">Logout</a></h3>
+    <a [routerLink]="['/login']">Logout</a>
+    <p>Select an option</p>
+  </div>
+  <div class="row">
     <div class="col-md-6">
       <a (click)="updateSection('clubs')" class="btn">
         <h2>Posts</h2>
@@ -14,23 +15,16 @@
       </a>
     </div>
   </div>
-
   <ng-container *ngIf="currentSection == 'posts'">
-    <h2>Posts</h2>
-
     <div *ngFor="let post of sectionData">
       <div class="card">
-        <h4>{{ post.title | uppercase}}</h4>
+        <h3>{{ post.title | uppercase}}</h3>
         <span class="meta">By User {{ post.userId}}, Post ID: {{ post.id}}</span>
         <p>{{ post.body}}</p>
       </div>
-
     </div>
   </ng-container>
-
   <ng-container *ngIf="currentSection == 'users' &&sectionData">
-    <h2>Users</h2>
-
     <div *ngFor="let user of sectionData">
       <div class="card">
         <ul>
@@ -39,13 +33,18 @@
           <li><b>Username</b>: {{ user?.username }}</li>
           <li><b>Email</b>: {{ user?.email }}</li>
           <li class="card-address">
-            <b>Address</b>:
             <b>Street</b>: {{ user?.address?.street }}
+            <br>
             <b>Suite</b>: {{ user?.address?.suite }}
+            <br>
             <b>City</b>: {{ user?.address?.city }}
+            <br>
             <b>Zipcode</b>: {{ user?.address?.zipcode }}
+            <br>
             <b>Lat</b>: {{ user?.address?.geo?.lat }}
+            <br>
             <b>Long</b>:{{ user?.address?.geo?.lng }}
+            <br>
           </li>
           <li><b>Phone</b>: {{ user?.phone }}</li>
           <li><b>Website</b>:{{ user?.website }}</li>

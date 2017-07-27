@@ -13,3 +13,14 @@
 .card li {
     list-style-type: none;
 }
+
+.card h3 {
+  font-weight: 600;
+  text-shadow: .5px .5px #999;
+  color: #555;
+}
+
+.meta {
+  font-size: .75em;
+  font-weight: 200;
+}
