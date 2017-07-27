@@ -6,7 +6,7 @@ export let fakeBackendProvider = {
   useFactory: (backend: MockBackend, options: BaseRequestOptions) => {
     backend.connections.subscribe((connection: MockConnection) => {
       // tslint:disable-next-line:prefer-const
-      let testUser = { username: 'test', password: 'test', firstName: 'Test', lastName: 'User' };
+      let testUser = { username: 'jaime', password: 'elmejor', firstName: 'Jaime', lastName: 'Madrigal Rios' };
       setTimeout(() => {
         if (connection.request.url.endsWith('/api/authenticate') && connection.request.method === RequestMethod.Post) {
           // tslint:disable-next-line:prefer-const
