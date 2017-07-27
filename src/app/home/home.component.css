@@ -1,0 +1,15 @@
+.card {
+  margin-bottom: 2em;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 2em;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card:hover {
+  box-shadow: 2px 2px #333;
+}
+
+.card li {
+    list-style-type: none;
+}

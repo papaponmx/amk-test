@@ -11,8 +11,8 @@ export class DataService {
 
   getData(type: string) {
     return this.http.get(environment.apiUrl + type)
-      .subscribe(res => res
-      );
-
+      .subscribe(res => {
+        return res;
+      });
   }
 }

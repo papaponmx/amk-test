@@ -1,1 +1,4 @@
-@import url('foundation.min.css');
+li, p {
+color: tomato;
+
+}
