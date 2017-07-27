@@ -2,7 +2,7 @@
 
   <div class="row">
 
-    <h3>Selecciona uno</h3>
+    <h3><a [routerLink]="['/login']">Logout</a></h3>
     <div class="col-md-6">
       <a (click)="updateSection('clubs')" class="btn">
         <h2>Posts</h2>
@@ -14,7 +14,6 @@
       </a>
     </div>
   </div>
-  <!-- TODO: Display information according to the escenario -->
 
   <ng-container *ngIf="currentSection == 'posts'">
     <h2>Posts</h2>
